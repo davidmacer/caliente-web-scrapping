@@ -1,0 +1,36 @@
+---
+title: "Web Scrapping de Momios del casino Caliente"
+author: "NIES Futbol"
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+Para hacer el _web scrapping_ vamos a usar la librería `rvest`. Vamos a usar `dplyr` para hacer el manejo de los datos.
+
+```{r librarys, include=TRUE}
+library(rvest)
+library(dplyr)
+```
+
+Definimos la página a la que vamos a acceder para hacer el _web scrapping_.
+
+```{r, include=TRUE}
+url <- "https://sports.caliente.mx/es_MX"
+html <- read_html(url) # Lee el url para traer todos los elementos de la página
+```
+
+```{r, include=TRUE}
+tabla <- html |>
+  html_elements("table") # Jala los elementos con clase tabla (class="table")
+```
+
+```{r, include=TRUE}
+# Jala (a mano) los datos de la Liga MX (que están en el elemento 3)
+tabla_ligamx <- tabla[3] |> html_table() 
+tabla_ligamx[[1]][, c("X5", "X6", "X7")] # Extrae las columnas señaladas
+```
+

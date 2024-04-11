@@ -9,6 +9,10 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 ```
 
+Como es sabido, el [_web scrapping_](https://www.google.com/search?q=web+scrapping&oq=web+scrapping&aqs=chrome..69i57j0i10i512l4j69i60l3.2971j0j7&sourceid=chrome&ie=UTF-8) es el proceso para extraer datos o contenido desde un sitio web. El _web scrapping_ extrae el código HTML dentro de una página, así como también datos almacenados dentro de bases de datos.
+
+Los analistas o ingenieron de datos deportivos (en un amplio sentido de la palabra) recurren al _web scrapping_ en situaciones cuando no existe una API para acceder a los datos de manera directa. Obteniendo así datos de estadísticas de partidos, jugadores y ligas.
+
 Para hacer el _web scrapping_ vamos a usar la librería `rvest`. Vamos a usar `dplyr` para hacer el manejo de los datos.
 
 ```{r librarys, include=TRUE}

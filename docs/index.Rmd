@@ -13,6 +13,8 @@ Como es sabido, el [_web scrapping_](https://www.google.com/search?q=web+scrappi
 
 Los analistas o ingenieron de datos deportivos (en un amplio sentido de la palabra) recurren al _web scrapping_ en situaciones cuando no existe una API para acceder a los datos de manera directa. Obteniendo así datos de estadísticas de partidos, jugadores y ligas.
 
+En esta nota, nosotros mostramos cómo usamos el _web scrapping_ para extraer los datos de los momios de la [Liga MX](https://sports.caliente.mx/es_MX/Liga-MX) y [La Liga](https://sports.caliente.mx/es_MX/La-Liga), con el fin de (en una siguiente nota) hacer una comparación con los resultados del [modelo de predicciones del NIES](https://predictions-nies.streamlit.app/).
+
 Para hacer el _web scrapping_ vamos a usar la librería `rvest`. Vamos a usar `dplyr` para hacer el manejo de los datos.
 
 ```{r librarys, include=TRUE}

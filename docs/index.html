@@ -11,7 +11,7 @@
 
 <meta name="author" content="NIES Futbol" />
 
-<meta name="date" content="2024-03-21" />
+<meta name="date" content="2024-04-12" />
 
 <title>Web Scrapping de Momios del casino Caliente</title>
 
@@ -353,11 +353,24 @@ display: none;
 <h1 class="title toc-ignore">Web Scrapping de Momios del casino
 Caliente</h1>
 <h4 class="author">NIES Futbol</h4>
-<h4 class="date">March 21, 2024</h4>
+<h4 class="date">April 12, 2024</h4>
 
 </div>
 
 
+<p>Como es sabido, el <a href="https://www.google.com/search?q=web+scrapping&amp;oq=web+scrapping&amp;aqs=chrome..69i57j0i10i512l4j69i60l3.2971j0j7&amp;sourceid=chrome&amp;ie=UTF-8"><em>web
+scrapping</em></a> es el proceso para extraer datos o contenido desde un
+sitio web. El <em>web scrapping</em> extrae el código HTML dentro de una
+página, así como también datos almacenados dentro de bases de datos.</p>
+<p>Los analistas o ingenieron de datos deportivos (en un amplio sentido
+de la palabra) recurren al <em>web scrapping</em> en situaciones cuando
+no existe una API para acceder a los datos de manera directa. Obteniendo
+así datos de estadísticas de partidos, jugadores y ligas.</p>
+<p>En esta nota, nosotros mostramos cómo usamos el <em>web
+scrapping</em> para extraer los datos de los momios de la <a href="https://sports.caliente.mx/es_MX/Liga-MX">Liga MX</a> y <a href="https://sports.caliente.mx/es_MX/La-Liga">La Liga</a>, con el fin
+de (en una siguiente nota) hacer una comparación con los resultados del
+<a href="https://predictions-nies.streamlit.app/">modelo de predicciones
+del NIES</a>.</p>
 <p>Para hacer el <em>web scrapping</em> vamos a usar la librería
 <code>rvest</code>. Vamos a usar <code>dplyr</code> para hacer el manejo
 de los datos.</p>
@@ -372,13 +385,11 @@ html &lt;- read_html(url) # Lee el url para traer todos los elementos de la pág
 <pre class="r"><code># Jala (a mano) los datos de la Liga MX (que están en el elemento 3)
 tabla_ligamx &lt;- tabla[3] |&gt; html_table() 
 tabla_ligamx[[1]][, c(&quot;X5&quot;, &quot;X6&quot;, &quot;X7&quot;)] # Extrae las columnas señaladas</code></pre>
-<pre><code>## # A tibble: 4 × 3
-##   X5                                         X6                            X7   
-##   &lt;chr&gt;                                      &lt;chr&gt;                         &lt;chr&gt;
-## 1 &quot;★\n\n\nEE.UU\n\n\n4/11\n1.363\n-275&quot;      &quot;Empate\n\n\n4/1\n5.00\n+400&quot; &quot;★\n…
-## 2 &quot;★\n\n\nPanamá\n\n\n4/1\n5.00\n+400&quot;       &quot;Empate\n\n\n53/20\n3.65\n+2… &quot;★\n…
-## 3 &quot;★\n\n\nCanada\n\n\n1/10\n1.10\n-1000&quot;     &quot;Empate\n\n\n15/2\n8.50\n+75… &quot;★\n…
-## 4 &quot;★\n\n\nCosta Rica\n\n\n23/20\n2.15\n+115&quot; &quot;Empate\n\n\n11/5\n3.20\n+22… &quot;★\n…</code></pre>
+<pre><code>## # A tibble: 2 × 3
+##   X5                                        X6                             X7   
+##   &lt;chr&gt;                                     &lt;chr&gt;                          &lt;chr&gt;
+## 1 &quot;★\n\n\nAtlante\n\n\n4/11\n1.363\n-275&quot;   &quot;Empate\n\n\n15/4\n4.75\n+375&quot; &quot;★\n…
+## 2 &quot;★\n\n\nClub Celaya\n\n\n3/4\n1.75\n-134&quot; &quot;Empate\n\n\n11/4\n3.75\n+275&quot; &quot;★\n…</code></pre>
 
 
 
